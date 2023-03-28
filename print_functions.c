@@ -82,5 +82,5 @@ int print_number(int n)
 	if ((num / 10) > 0)
 		print_number(num / 10);
 	j = num % 10 + '0';
-	return (write(1, &j, 1) + 1);
+	return (write(1, &j, 1) + i);
 }
