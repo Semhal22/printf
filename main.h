@@ -22,5 +22,7 @@ int _print(const char *format, va_list args, print types[]);
 int validate_format(char format);
 int print_char(va_list args);
 int print_string(va_list args);
+int print_int(va_list args);
+int print_number(int n);
 
 #endif /* MAIN_H */

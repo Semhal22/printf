@@ -46,3 +46,41 @@ int print_string(va_list args)
 	}
 	return (write(1, str, _strlen(str)));
 }
+/**
+ * print_int - Prints an integer
+ * @args: argument to be printed
+ *
+ * Return: number
+ */
+int print_int(va_list args)
+{
+	int a;
+
+	a = va_arg(args, int);
+	return (print_number(a));
+}
+
+/**
+ * print_number - prints an integer
+ * @n: integer to be printed
+ *
+ * Return: void
+ */
+int print_number(int n)
+{
+	unsigned int num;
+	int i = 0;
+	char minus = '-', j;
+
+	num = n;
+	if (n < 0)
+	{
+		write(1, &minus, 1);
+		i++;
+		num = -num;
+	}
+	if ((num / 10) > 0)
+		print_number(num / 10);
+	j = num % 10 + '0';
+	return (write(1, &j, 1) + 1);
+}

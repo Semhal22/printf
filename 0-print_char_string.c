@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	print types[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"i", print_int},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 	va_list args;
@@ -83,7 +85,7 @@ int _print(const char *format, va_list args, print types[])
  */
 int validate_format(char format)
 {
-	char formats[] = {'c', 's'};
+	char formats[] = {'c', 's', 'i', 'd'};
 	int i = 0;
 
 	while (formats[i] != '\0')
