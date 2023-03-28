@@ -54,10 +54,26 @@ int print_string(va_list args)
  */
 int print_int(va_list args)
 {
-	int a;
+	int count = 1, m = 0;
+	unsigned int n = 0;
+	char minus = '-';
 
-	a = va_arg(args, int);
-	return (print_number(a));
+	n = va_arg(args, int);
+	m = n;
+	if (m < 0)
+	{
+		write(1, &minus, 1);
+		m = m * -1;
+		n = m;
+		count += 1;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		count++;
+	}
+	print_number(m);
+	return (count);
 }
 
 /**
@@ -66,21 +82,14 @@ int print_int(va_list args)
  *
  * Return: void
  */
-int print_number(int n)
+void print_number(int n)
 {
 	unsigned int num;
-	int i = 0;
-	char minus = '-', j;
+	char j;
 
 	num = n;
-	if (n < 0)
-	{
-		write(1, &minus, 1);
-		i++;
-		num = -num;
-	}
-	if ((num / 10) > 0)
+	if (num / 10)
 		print_number(num / 10);
-	j = num % 10 + '0';
-	return (write(1, &j, 1) + i);
+	j = n % 10 + '0';
+	write(1, &j, 1);
 }
