@@ -12,8 +12,8 @@ int _printf(const char *format, ...)
 	print types[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"i", print_int},
 		{"d", print_int},
+		{"i", print_int},
 		{NULL, NULL}
 	};
 	va_list args;
