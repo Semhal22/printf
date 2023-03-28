@@ -2,12 +2,8 @@
 
 /**
  * print_binary - Prints an unsigned number
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
+ * @args: arguments passed to the function
+ *
  * Return: Numbers of char printed.
  */
 int print_binary(va_list args)

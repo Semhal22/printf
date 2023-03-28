@@ -25,7 +25,7 @@ int print_char(va_list args)
 	char character;
 
 	character = va_arg(args, int);
-	return (write(1, &character, 1));
+	return (_putchar(character));
 }
 /**
  * print_string - Prints a string
@@ -84,11 +84,9 @@ int print_int(va_list args)
 void print_number(int n)
 {
 	unsigned int num;
-	char j;
 
 	num = n;
 	if (num / 10)
 		print_number(num / 10);
-	j = n % 10 + '0';
-	write(1, &j, 1);
+	_putchar(num % 10 + '0');
 }

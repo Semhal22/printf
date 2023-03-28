@@ -20,9 +20,9 @@ int _printf(const char *format, ...)
 	va_list args;
 	int num;
 
-	va_start(args, format);
 	if (format == NULL)
 		return (-1);
+	va_start(args, format);
 	num = _print(format, args, types);
 
 	va_end(args);
@@ -40,13 +40,10 @@ int _print(const char *format, va_list args, print types[])
 {
 	int i, j, num = 0;
 
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0' && format; i++)
 	{
 		if (format[i] != '%')
-		{
-			write(1, &format[i], 1);
-			num++;
-		}
+			num += _putchar(format[i]);
 		else
 		{
 			i++;
@@ -65,12 +62,12 @@ int _print(const char *format, va_list args, print types[])
 			{
 				if (format[i] == '\0')
 					return (-1);
-				write(1, &format[i - 1], 1);
-				num++;
+				else if (format[i] == '%')
+					num += _putchar(format[i]);
 				if (format[i] != '%')
 				{
-					write(1, &format[i], 1);
-					num++;
+					num += _putchar('%');
+					num += _putchar(format[i]);
 				}
 			}
 		}
@@ -86,7 +83,7 @@ int _print(const char *format, va_list args, print types[])
  */
 int validate_format(char format)
 {
-  char formats[] = {'c', 's', 'i', 'd', 'b'};
+	char formats[] = {'c', 's', 'i', 'd', 'b'};
 	int i = 0;
 
 	while (formats[i] != '\0')
