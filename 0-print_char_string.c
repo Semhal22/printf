@@ -58,10 +58,17 @@ int _print(const char *format, va_list args, print types[])
 					}
 				}
 			}
-			else if (format[i] != '\0')
+			else
 			{
+				if (format[i] == '\0')
+					return (-1);
 				write(1, &format[i - 1], 1);
 				num++;
+				if (format[i] != '%')
+				{
+					write(1, &format[i], 1);
+					num++;
+				}
 			}
 		}
 	}
