@@ -8,10 +8,20 @@
  */
 int print_unsigned_int(va_list args)
 {
-	unsigned int num;
+	unsigned int num, temp;
+	int count = 0;
 
 	num = va_arg(args, unsigned int);
-	return (print_number(num));
+	temp = num;
+	if (temp == 0)
+		return (_putchar('0'));
+	while (temp > 0)
+	{
+		temp /= 10;
+		count++;
+	}
+	print_number(num);
+	return (count);
 }
 /**
  * print_octal - Prints an octal number
@@ -101,7 +111,7 @@ int print_hexa_lower(va_list args)
 		return (_putchar('0'));
 	while (temp > 0)
 	{
-		temp /= 8;
+		temp /= 16;
 		count++;
 	}
 	recursion_func(num, 16, 'l');
