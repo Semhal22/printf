@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_binary - Prints an unsigned number
  * @args: arguments passed to the function
@@ -27,7 +26,7 @@ int print_binary(va_list args)
 		{
 			char z = '0' + a[i];
 
-			write(1, &z, 1);
+			_putchar(z);
 			count++;
 		}
 	}
