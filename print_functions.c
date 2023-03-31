@@ -55,16 +55,18 @@ int print_int(va_list args)
 {
 	int count = 0, m = 0;
 	unsigned int n = 0;
-	char minus = '-';
 
 	n = va_arg(args, int);
 	m = n;
 	if (m < 0)
 	{
-		write(1, &minus, 1);
+		_putchar('-');
 		m = m * -1;
 		n = m;
+		count++;
 	}
+	if (n == 0)
+		return (_putchar('0'));
 	while (n > 0)
 	{
 		n = n / 10;
