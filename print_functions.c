@@ -87,5 +87,5 @@ int print_number(int n)
 	num = n;
 	if (num / 10)
 		print_number(num / 10);
-	return( _putchar(num % 10 + '0'));
+	return (_putchar(num % 10 + '0'));
 }
