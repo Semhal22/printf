@@ -68,7 +68,7 @@ int recursion_func(unsigned int dividend, int divisor, char type)
 	else if (type == 'u')
 		add = (remainder < 10) ? 48 : 55;
 	else
-		add = (remainder < 10) ? 48 : 85;
+		add = (remainder < 10) ? 48 : 87;
 	return (_putchar(remainder + add));
 }
 /**
