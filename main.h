@@ -24,7 +24,12 @@ int validate_format(char format);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_int(va_list args);
-void print_number(int n);
+int print_number(int n);
 int print_binary(va_list args);
+int print_unsigned_int(va_list args);
+int print_octal(va_list args);
+int recursion_func(unsigned int dividend, int divisor, char type);
+int print_hexa_upper(va_list args);
+int print_hexa_lower(va_list args);
 
 #endif /* MAIN_H */

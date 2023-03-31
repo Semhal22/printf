@@ -64,7 +64,6 @@ int print_int(va_list args)
 		write(1, &minus, 1);
 		m = m * -1;
 		n = m;
-		count += 1;
 	}
 	while (n > 9)
 	{
@@ -81,12 +80,12 @@ int print_int(va_list args)
  *
  * Return: void
  */
-void print_number(int n)
+int print_number(int n)
 {
 	unsigned int num;
 
 	num = n;
 	if (num / 10)
 		print_number(num / 10);
-	_putchar(num % 10 + '0');
+	return( _putchar(num % 10 + '0'));
 }
